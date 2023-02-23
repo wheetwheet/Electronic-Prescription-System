@@ -1,0 +1,19 @@
+image: java:latest
+
+stages:
+    - build
+    - test
+
+build:
+    stage: build
+    script:
+         - /usr/lib/jvm/java-8-openjdk-amd64/bin/javac tFanClubProject/src/tFanClubProject/*.java
+         -Xlint:unchecked
+    artifacts:
+        paths:
+            - tFanClubProject/src/tFanClubProject/.*
+            
+
+test:
+    stage: test
+    script: /usr/lib/jvm/java-8-openjdk-amd64/bin/javac -cp .:libs/junit-4-13.2.jar LoginPage
